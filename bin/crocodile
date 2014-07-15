@@ -33,7 +33,7 @@ class CrocodileProcess
       end
     end
   end
-  
+
   def stop
     if File.exists?(@pid_path)
       Process.kill :TERM, File.open(@pid_path).read.strip.to_i
@@ -56,7 +56,7 @@ class CrocodileProcess
   end
 
   def constantize(name)
-    eval name.split("_").push("job").map(&:capitalize).join
+    Kernel.const_get(name.split("_").push("job").map(&:capitalize).join)
   end
 end
 
