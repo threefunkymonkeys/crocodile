@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
+
 require 'optparse'
-require 'eventmachine'
 require_relative '../lib/crocodile/crocodile_process'
 
 module Crocodile
@@ -25,7 +25,7 @@ job_name = ARGV.shift
 action   = ARGV.shift
 
 unless job_name
-  $stderr.puts "Must indicate a worker name"
+  $stderr.puts "Must indicate a job name"
   Crocodile.print_help
   exit 1
 end

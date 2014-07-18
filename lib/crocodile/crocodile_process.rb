@@ -1,3 +1,5 @@
+require 'eventmachine'
+
 class CrocodileProcess
   def initialize(job_name, pids_dir)
     @name = job_name
