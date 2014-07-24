@@ -13,7 +13,7 @@ class CrocodileJob
     raise RuntimeError.new("Must reimplement self.interval in a subclass")
   end
 
-  def self.one_run_only
+  def self.dismiss?
     false
   end
 
