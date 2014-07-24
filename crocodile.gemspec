@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.bindir = "bin"
   s.executables << "crocodile"
   s.add_dependency "eventmachine", '~> 1.0'
+  s.add_development_dependency 'mocha', '1.1.0'
 
   s.files = `git ls-files`.split("\n")
 end
