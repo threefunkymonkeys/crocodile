@@ -13,11 +13,15 @@ class CrocodileJob
     raise RuntimeError.new("Must reimplement self.interval in a subclass")
   end
 
+  def self.logger
+    @@logger ||= Logger.new(STDOUT)
+  end
+
   def self.dismiss?
     false
   end
 
-  def self.logger
-    @@logger ||= Logger.new(STDOUT)
+  class << self
+    alias :one_run_only, :dismiss?
   end
 end
