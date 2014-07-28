@@ -9,6 +9,7 @@ describe 'CrocodileJob' do
     CrocodileJob.must_respond_to :interval
     CrocodileJob.must_respond_to :run
     CrocodileJob.must_respond_to :dismiss?
+    CrocodileJob.must_respond_to :one_run_only
     CrocodileJob.must_respond_to :logger
   end
 end

@@ -22,6 +22,6 @@ class CrocodileJob
   end
 
   class << self
-    alias :one_run_only, :dismiss?
+    alias :one_run_only :dismiss?
   end
 end
