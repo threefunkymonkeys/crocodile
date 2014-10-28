@@ -10,7 +10,7 @@ class CrocodileJob
   end
 
   def self.run
-    raise NotImplementedError, "Must reimplement self.interval in a subclass"
+    raise NotImplementedError, "Must reimplement self.run in a subclass"
   end
 
   def self.one_run_only
