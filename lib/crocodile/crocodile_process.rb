@@ -22,16 +22,12 @@ class CrocodileProcess
       EventMachine.next_tick do
         job_class.logger.info job_class.message
         job_class.run
-        EventMachine.stop if job_class.dismiss?
+        EventMachine.stop if job_class.one_run_only
       end if launch_immediately
 
       timer = EventMachine::PeriodicTimer.new(job_class.interval || 60) do
         job_class.logger.info job_class.message
         job_class.run
-        if job_class.dismiss?
-          timer.cancel
-          EventMachine.stop
-        end
       end
     end
   end

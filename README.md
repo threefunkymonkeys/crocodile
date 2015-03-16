@@ -23,7 +23,7 @@ However, the interface is very simple, you can write your own class and forget a
 
 * You have a class method `YourClass#message` that returns a string
 * You have a class method `YourClass#interval` that returns an integer which indicates, in seconds, how often your job will be ran
-* You have a class method `YourClass#dismiss?` that returns a boolean to note if crocodile must dismiss following executions (ex: run it only once)
+* You have a class method `YourClass#one_run_only` that returns a boolean indicating if crocodile has to run it only once
 * You have a class method `YourClass#logger` that returns a `Logger` object
 * You have a class method `YourClass#run` that implements the logic of your job
 

@@ -32,7 +32,7 @@ describe 'CrocodileProcess' do
     TestJob.expects(:interval).returns(0.1)
     TestJob.expects(:message).returns("Testing Process")
     TestJob.expects(:run)
-    TestJob.expects(:dismiss?).returns(true)
+    TestJob.expects(:one_run_only).returns(true)
 
     process.start
   end
