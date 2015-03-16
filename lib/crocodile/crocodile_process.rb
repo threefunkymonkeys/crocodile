@@ -28,6 +28,10 @@ class CrocodileProcess
       timer = EventMachine::PeriodicTimer.new(job_class.interval || 60) do
         job_class.logger.info job_class.message
         job_class.run
+        if job_class.one_run_only
+          timer.cancel
+          EventMachine.stop
+        end
       end
     end
   end
