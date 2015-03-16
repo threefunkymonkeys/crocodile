@@ -24,7 +24,6 @@ describe 'CrocodileProcess' do
     File.unlink("jobs/test.rb")
   end
 
-
   it 'should run the job' do
     require './jobs/test' #required to be able to set expectation
 
