@@ -5,7 +5,7 @@ require_relative '../lib/crocodile/crocodile_process'
 
 module Crocodile
   def self.print_help
-    $stdout.puts "Usage: crocodile [-d] [-p /path/to/pids] job_name (start|stop)"
+    $stdout.puts "Usage: crocodile [-d] [-p /path/to/pids] job_name (start|schedule|stop)"
   end
 end
 
@@ -50,6 +50,14 @@ when "start"
 
   $stdout.puts "Starting Job #{job_name} #{opts[:daemonize] ? "(daemonized)" : ""}"
   process.start
+
+when "schedule"
+  if opts[:daemonize]
+    process.daemonize!
+  end
+
+  $stdout.puts "Scheduling Job #{job_name} #{opts[:daemonize] ? "(daemonized)" : ""}"
+  process.schedule
 
 when "stop"
   $stdout.puts "Stopping Job #{job_name}"

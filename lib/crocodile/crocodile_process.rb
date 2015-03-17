@@ -8,6 +8,10 @@ class CrocodileProcess
   end
 
   def start
+    schedule(launch_immediately=true)
+  end
+
+  def schedule(launch_immediately=false)
     require @job_path
     job_class = constantize(@name)
 
@@ -15,6 +19,12 @@ class CrocodileProcess
     Signal.trap("TERM") { EventMachine.stop }
 
     EventMachine.run do
+      EventMachine.next_tick do
+        job_class.logger.info job_class.message
+        job_class.run
+        EventMachine.stop if job_class.one_run_only
+      end if launch_immediately
+
       timer = EventMachine::PeriodicTimer.new(job_class.interval || 60) do
         job_class.logger.info job_class.message
         job_class.run
@@ -50,4 +60,5 @@ class CrocodileProcess
   def constantize(name)
     Kernel.const_get(name.split("_").push("job").map(&:capitalize).join)
   end
+
 end

@@ -111,6 +111,13 @@ If you need to stop the job, you do it through command line as well:
 crocodile dummy stop
 ```
 
+If you need just schedule the job instead to run it immediately, you do it through command line as well:
+
+```
+crocodile dummy schedule
+```
+
+
 So, that's pretty much it. We hope you enjoy it.
 
 ###How to collaborate
