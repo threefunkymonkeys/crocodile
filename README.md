@@ -1,6 +1,6 @@
 ##Crocodile
 
-Crocodile is a gem for running periodic [background] jobs written in Ruby.
+Crocodile is a [gem](https://rubygems.org/gems/crocodile) for running periodic [background] jobs written in Ruby.
 Crocodile provides a worker binary that's in charge of running the jobs you define, it also provides a base class for those jobs.
 
 ###Install
