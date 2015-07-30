@@ -117,6 +117,21 @@ If you need just schedule the job instead to run it immediately, you do it throu
 crocodile dummy schedule
 ```
 
+By default job will be scheduled to start after `interval`.
+
+If you want to schedule your job to start at certain hour you can redefine `start_at` method with format `hh:mm`:
+
+```
+class DummyJob < CrocodileJob
+  def self.start_at
+    "05:00"
+  end
+end
+
+crocodile dummy schedule
+```
+
+When `start_at` is defined your job will start working at `start_at` and will execute each `interval`.
 
 So, that's pretty much it. We hope you enjoy it.
 
