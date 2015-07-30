@@ -8,15 +8,33 @@ class CrocodileProcess
   end
 
   def start
-    schedule(launch_immediately=true)
+    schedule(true)
   end
 
-  def schedule(launch_immediately=false)
+  def schedule(launch_immediately = false)
     require @job_path
     job_class = constantize(@name)
 
+    run_enabled = true
+
     Signal.trap("INT")  { EventMachine.stop }
     Signal.trap("TERM") { EventMachine.stop }
+
+    if !launch_immediately && !job_class.start_at.nil?
+      run_enabled = false
+      EventMachine.run do
+        timer = EventMachine::PeriodicTimer.new(5) do
+          if Time.now.to_s.match(/\s#{job_class.start_at}:\d{2}/)
+            job_class.logger.info "Starting scheduled job (#{job_class.start_at})"
+            launch_immediately = true
+            run_enabled = true
+
+            timer.cancel
+            EventMachine.stop
+          end
+        end
+      end
+    end
 
     EventMachine.run do
       EventMachine.next_tick do
@@ -33,7 +51,7 @@ class CrocodileProcess
           EventMachine.stop
         end
       end
-    end
+    end if run_enabled
   end
 
   def stop
