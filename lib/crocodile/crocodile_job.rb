@@ -20,4 +20,8 @@ class CrocodileJob
   def self.logger
     @@logger ||= Logger.new(STDOUT)
   end
+
+  def self.start_at
+    nil
+  end
 end
