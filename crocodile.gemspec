@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = "crocodile"
-  s.version = "2.0"
+  s.version = "2.1.0"
   s.summary = "Periodic Ruby jobs runner"
   s.license = "MIT"
   s.description = "A simple worker to run Ruby jobs periodically"
