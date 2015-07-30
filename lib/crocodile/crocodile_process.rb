@@ -24,7 +24,6 @@ class CrocodileProcess
       run_enabled = false
       EventMachine.run do
         timer = EventMachine::PeriodicTimer.new(5) do
-          puts "check"
           if Time.now.to_s.match(/\s#{job_class.start_at}:\d{2}/)
             job_class.logger.info "Starting scheduled job (#{job_class.start_at})"
             launch_immediately = true
