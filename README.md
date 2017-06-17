@@ -1,15 +1,15 @@
-##Crocodile [![Gem Version](https://badge.fury.io/rb/crocodile.svg)](http://badge.fury.io/rb/crocodile)
+## Crocodile [![Gem Version](https://badge.fury.io/rb/crocodile.svg)](http://badge.fury.io/rb/crocodile)
 
 Crocodile is a [gem](https://rubygems.org/gems/crocodile) for running periodic [background] jobs written in Ruby.
 Crocodile provides a worker binary that's in charge of running the jobs you define, it also provides a base class for those jobs.
 
-###Install
+### Install
 
 ```
 gem install crocodile
 ```
 
-###Jobs
+### Jobs
 
 Crocodile is based on some conventions for running your jobs:
 
@@ -34,7 +34,7 @@ If you use the `CrocodileJob` as the base class, you only need to reimplement:
 
 The default logger will log to `STDOUT`, if you want to log to a file, reimplement `CrocodileJob#logger` with something like `Logger.new("jobs/logs/dummy.log")`
 
-###Example
+### Example
 
 Suppose you have an application, let's say `dummy_app` and you need to run periodic background jobs on it.
 Go to the `dummy_app` dir and create the necessary directories:
@@ -135,7 +135,7 @@ When `start_at` is defined your job will start working at `start_at` and will ex
 
 So, that's pretty much it. We hope you enjoy it.
 
-###How to collaborate
+### How to collaborate
 
 If you find a bug or want to collaborate with the code, you can:
 
