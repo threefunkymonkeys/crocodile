@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/357127/27828193-4297bf36-6091-11e7-9e7a-2cda310bb21c.png" alt="Crocodile">
+</p>
+
 ## Crocodile [![Gem Version](https://badge.fury.io/rb/crocodile.svg)](http://badge.fury.io/rb/crocodile)
 
 Crocodile is a [gem](https://rubygems.org/gems/crocodile) for running periodic [background] jobs written in Ruby.
