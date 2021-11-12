@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/spec'
-require 'mocha/mini_test'
+require 'mocha/minitest'
 require_relative '../../lib/crocodile/crocodile_process'
 require_relative '../../lib/crocodile/crocodile_job'
 
