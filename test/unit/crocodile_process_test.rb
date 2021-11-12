@@ -18,6 +18,8 @@ describe 'CrocodileProcess' do
     File.open("jobs/test.rb", "w") do |f|
       f.puts job
     end
+
+    File.unlink("/tmp/test.pid") if File.exist?("/tmp/test.pid")
   end
 
   def teardown
