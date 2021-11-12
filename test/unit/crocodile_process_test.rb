@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/spec'
-require 'mocha/mini_test'
+require 'mocha/minitest'
 require_relative '../../lib/crocodile/crocodile_process'
 require_relative '../../lib/crocodile/crocodile_job'
 
@@ -18,6 +18,8 @@ describe 'CrocodileProcess' do
     File.open("jobs/test.rb", "w") do |f|
       f.puts job
     end
+
+    File.unlink("/tmp/test.pid") if File.exist?("/tmp/test.pid")
   end
 
   def teardown
